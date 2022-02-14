@@ -1,0 +1,33 @@
+{
+    "name": "git-ssh",
+    "version": "1.0.0",
+    "description": "",
+    "main": "bin/index.js",
+    "bin": {
+        "git-ssh": "bin/index.js"
+    },
+    "scripts": {
+        "build": "babel src -d bin",
+        "start": "npm run build && nodemon bin/index.js",
+        "serve": "npm run build && node bin/index.js"
+    },
+    "keywords": [],
+    "author": "",
+    "license": "ISC",
+    "devDependencies": {
+        "@babel/cli": "^7.17.0",
+        "@babel/core": "^7.17.2",
+        "@babel/plugin-transform-runtime": "^7.17.0",
+        "@babel/preset-env": "^7.16.11",
+        "@babel/register": "^7.17.0",
+        "eslint": "^8.9.0",
+        "eslint-config-prettier": "^8.3.0",
+        "nodemon": "^2.0.15",
+        "prettier": "^2.5.1"
+    },
+    "dependencies": {
+        "@babel/runtime": "^7.17.2",
+        "untildify": "^4.0.0",
+        "yargs": "^17.3.1"
+    }
+}
