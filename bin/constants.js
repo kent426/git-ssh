@@ -3,7 +3,7 @@
 Object.defineProperty(exports, "__esModule", {
   value: true
 });
-exports.sshPathKey = exports.gitNameKey = exports.gitEmailKey = exports.CONFIG_REPO_PATH = exports.CONFIG_FILE_PATH = exports.CONFIG_FILE_NAME = void 0;
+exports.SSH_PATH_KEY = exports.GIT_NAME_KEY = exports.GIT_EMAIL_KEY = exports.CONFIG_REPO_PATH = exports.CONFIG_FILE_PATH = exports.CONFIG_FILE_NAME = void 0;
 
 var _path = require("path");
 
@@ -17,9 +17,9 @@ var CONFIG_FILE_NAME = "config.json";
 exports.CONFIG_FILE_NAME = CONFIG_FILE_NAME;
 var CONFIG_FILE_PATH = (0, _path.join)(CONFIG_REPO_PATH, CONFIG_FILE_NAME);
 exports.CONFIG_FILE_PATH = CONFIG_FILE_PATH;
-var sshPathKey = "ssh_private_path";
-exports.sshPathKey = sshPathKey;
-var gitNameKey = "name";
-exports.gitNameKey = gitNameKey;
-var gitEmailKey = "email";
-exports.gitEmailKey = gitEmailKey;
+var SSH_PATH_KEY = "ssh_private_path";
+exports.SSH_PATH_KEY = SSH_PATH_KEY;
+var GIT_NAME_KEY = "name";
+exports.GIT_NAME_KEY = GIT_NAME_KEY;
+var GIT_EMAIL_KEY = "email";
+exports.GIT_EMAIL_KEY = GIT_EMAIL_KEY;

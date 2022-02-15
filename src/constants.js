@@ -6,6 +6,6 @@ export const CONFIG_REPO_PATH = join(homedir(), "./.git-ssh/");
 // eslint-disable-next-line no-unused-vars
 export const CONFIG_FILE_NAME = "config.json";
 export const CONFIG_FILE_PATH = join(CONFIG_REPO_PATH, CONFIG_FILE_NAME);
-export const sshPathKey = "ssh_private_path";
-export const gitNameKey = "name";
-export const gitEmailKey = "email";
+export const SSH_PATH_KEY = "ssh_private_path";
+export const GIT_NAME_KEY = "name";
+export const GIT_EMAIL_KEY = "email";

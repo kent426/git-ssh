@@ -28,6 +28,8 @@
     },
     "dependencies": {
         "@babel/runtime": "^7.17.2",
+        "inquirer": "^8.2.0",
+        "inquirer-path": "^1.0.0-beta5",
         "untildify": "^4.0.0",
         "yargs": "^17.3.1"
     }

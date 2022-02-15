@@ -3,6 +3,7 @@ import yargs from "yargs/yargs";
 import { hideBin } from "yargs/helpers";
 import { switchAccount } from "./switchAccount";
 import { initconfig } from "./initconfig";
+import { add } from "./add";
 
 yargs(hideBin(process.argv))
     .command({
@@ -12,6 +13,15 @@ yargs(hideBin(process.argv))
         builder: () => {},
         handler: async () => {
             await initconfig();
+        },
+    })
+    .command({
+        command: "add",
+
+        desc: "add github account by answering prompts \n 1. username;\n 2. email;\n 3. ssh-private-key file path;\n",
+        builder: () => {},
+        handler: async () => {
+            await add();
         },
     })
     .command({
