@@ -5,7 +5,7 @@ import {
     CONFIG_FILE_PATH,
 } from "./constants";
 
-export const initconfig = async () => {
+export const createOrGetConfig = async () => {
     try {
         await fs.mkdir(CONFIG_REPO_PATH, { recursive: true });
     } catch (e) {

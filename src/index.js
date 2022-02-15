@@ -2,7 +2,7 @@
 import yargs from "yargs/yargs";
 import { hideBin } from "yargs/helpers";
 import { switchAccount } from "./switchAccount";
-import { initconfig } from "./initconfig";
+import { createOrGetConfig } from "./initconfig";
 import { add } from "./add";
 
 yargs(hideBin(process.argv))
@@ -12,7 +12,17 @@ yargs(hideBin(process.argv))
         desc: "init ~/.git-ssh/config",
         builder: () => {},
         handler: async () => {
-            await initconfig();
+            await createOrGetConfig();
+        },
+    })
+    .command({
+        command: "ls",
+
+        desc: "ls github accounts in ~/.git-ssh/config",
+        builder: () => {},
+        handler: async () => {
+            const configObj = await createOrGetConfig();
+            console.log(JSON.stringify(configObj, null, 4));
         },
     })
     .command({
@@ -30,7 +40,7 @@ yargs(hideBin(process.argv))
         desc: "use specific ssh name for git",
         builder: () => {},
         handler: async (argv) => {
-            await initconfig();
+            await createOrGetConfig();
             if (!argv.name) {
                 console.log("require name");
             } else {

@@ -1,9 +1,16 @@
 import inquirer from "inquirer";
-import { SSH_PATH_KEY, GIT_EMAIL_KEY, GIT_NAME_KEY } from "./constants";
+import {
+    SSH_PATH_KEY,
+    GIT_EMAIL_KEY,
+    GIT_NAME_KEY,
+    CONFIG_FILE_PATH,
+} from "./constants";
 import { PathPrompt } from "inquirer-path";
 inquirer.prompt.registerPrompt("path", PathPrompt);
 import * as fs from "fs";
+import * as fsPromises from "fs/promises";
 import { homedir } from "os";
+import { createOrGetConfig } from "./initconfig";
 
 function exists(path) {
     try {
@@ -15,6 +22,11 @@ function exists(path) {
 }
 
 const questions = [
+    {
+        type: "input",
+        name: "profile",
+        message: "What's your new profile name:",
+    },
     {
         type: "input",
         name: GIT_NAME_KEY,
@@ -48,8 +60,20 @@ const questions = [
     },
 ];
 
+const updateConfig = async (answers) => {
+    // console.log(JSON.stringify(answers, null, "  "));
+    const { profile, ...values } = answers;
+
+    const configObj = await createOrGetConfig();
+    const newConfigObj = { ...configObj, [profile]: values };
+    await fsPromises.writeFile(
+        CONFIG_FILE_PATH,
+        JSON.stringify(newConfigObj, null, 4)
+    );
+};
+
 export const add = () => {
     inquirer.prompt(questions).then((answers) => {
-        console.log(JSON.stringify(answers, null, "  "));
+        updateConfig(answers);
     });
 };

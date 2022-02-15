@@ -55,23 +55,23 @@ var switchAccount = /*#__PURE__*/function () {
             gitNameValue = configObj[gitacc][gitNameKey];
             gitEmailValue = configObj[gitacc][gitEmailKey];
             privateFilePath = configObj[gitacc][sshPathKey];
-            privateFileAbsolutePath = (0, _path.resolve)((0, _untildify["default"])(privateFilePath));
-            console.log("privateFileAbsolutePath", privateFileAbsolutePath);
-            _context.next = 10;
+            privateFileAbsolutePath = (0, _path.resolve)((0, _untildify["default"])(privateFilePath)); // console.log("privateFileAbsolutePath", privateFileAbsolutePath);
+
+            _context.next = 9;
             return execgitconfig("git config --global core.sshCommand \"ssh -i ".concat(privateFileAbsolutePath, "\""));
 
-          case 10:
-            _context.next = 12;
+          case 9:
+            _context.next = 11;
             return execgitconfig("git config --global  user.name ".concat(gitNameValue));
 
-          case 12:
-            _context.next = 14;
+          case 11:
+            _context.next = 13;
             return execgitconfig("git config --global  user.email ".concat(gitEmailValue));
 
-          case 14:
+          case 13:
             return _context.abrupt("return", true);
 
-          case 15:
+          case 14:
           case "end":
             return _context.stop();
         }

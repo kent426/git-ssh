@@ -26,7 +26,7 @@ const switchAccount = async (gitacc) => {
     const gitEmailValue = configObj[gitacc][gitEmailKey];
     const privateFilePath = configObj[gitacc][sshPathKey];
     const privateFileAbsolutePath = resolve(untildify(privateFilePath));
-    console.log("privateFileAbsolutePath", privateFileAbsolutePath);
+    // console.log("privateFileAbsolutePath", privateFileAbsolutePath);
 
     await execgitconfig(
         `git config --global core.sshCommand "ssh -i ${privateFileAbsolutePath}"`
