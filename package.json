@@ -7,7 +7,8 @@
         "git-ssh": "bin/index.js"
     },
     "scripts": {
-        "build": "babel src -d bin",
+        "build": "babel src -d bin && npm run add-x",
+        "add-x": "chmod +x bin/*.js",
         "start": "npm run build && nodemon bin/index.js",
         "serve": "npm run build && node bin/index.js"
     },

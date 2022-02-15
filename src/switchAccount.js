@@ -6,21 +6,20 @@ import untildify from "untildify";
 import { stdout } from "process";
 import { promisify } from "util";
 const exec = promisify(execCb);
-// import { homedir } from "os";
+import { homedir } from "os";
 
-// const configRepoPath = join(homedir(), `/.git-ssh/`);
-const configRepoPath = resolve(__dirname, "../.git-ssh");
+const configRepoPath = join(homedir(), "./.git-ssh/");
+// const configRepoPath = resolve(__dirname, "../.git-ssh");
 // eslint-disable-next-line no-unused-vars
 const configFileName = "config.json";
 const sshPathKey = "ssh_private_path";
 const gitNameKey = "name";
 const gitEmailKey = "email";
 
-const configObj = JSON.parse(
-    readFileSync(`${configRepoPath}/${configFileName}`, "utf8")
-);
-
 const switchAccount = async (gitacc) => {
+    const configObj = JSON.parse(
+        readFileSync(join(configRepoPath, configFileName), "utf8")
+    );
     if (!configObj[gitacc]) return false;
 
     const gitNameValue = configObj[gitacc][gitNameKey];

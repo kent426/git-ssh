@@ -23,53 +23,55 @@ var _process = require("process");
 
 var _util = require("util");
 
-/* eslint-disable no-unused-vars */
-var exec = (0, _util.promisify)(_child_process.exec); // import { homedir } from "os";
-// const configRepoPath = join(homedir(), `/.git-ssh/`);
+var _os = require("os");
 
-var configRepoPath = (0, _path.resolve)(__dirname, "../.git-ssh"); // eslint-disable-next-line no-unused-vars
+/* eslint-disable no-unused-vars */
+var exec = (0, _util.promisify)(_child_process.exec);
+var configRepoPath = (0, _path.join)((0, _os.homedir)(), "./.git-ssh/"); // const configRepoPath = resolve(__dirname, "../.git-ssh");
+// eslint-disable-next-line no-unused-vars
 
 var configFileName = "config.json";
 var sshPathKey = "ssh_private_path";
 var gitNameKey = "name";
 var gitEmailKey = "email";
-var configObj = JSON.parse((0, _fs.readFileSync)("".concat(configRepoPath, "/").concat(configFileName), "utf8"));
 
 var switchAccount = /*#__PURE__*/function () {
   var _ref = (0, _asyncToGenerator2["default"])( /*#__PURE__*/_regenerator["default"].mark(function _callee(gitacc) {
-    var gitNameValue, gitEmailValue, privateFilePath, privateFileAbsolutePath;
+    var configObj, gitNameValue, gitEmailValue, privateFilePath, privateFileAbsolutePath;
     return _regenerator["default"].wrap(function _callee$(_context) {
       while (1) {
         switch (_context.prev = _context.next) {
           case 0:
+            configObj = JSON.parse((0, _fs.readFileSync)((0, _path.join)(configRepoPath, configFileName), "utf8"));
+
             if (configObj[gitacc]) {
-              _context.next = 2;
+              _context.next = 3;
               break;
             }
 
             return _context.abrupt("return", false);
 
-          case 2:
+          case 3:
             gitNameValue = configObj[gitacc][gitNameKey];
             gitEmailValue = configObj[gitacc][gitEmailKey];
             privateFilePath = configObj[gitacc][sshPathKey];
             privateFileAbsolutePath = (0, _path.resolve)((0, _untildify["default"])(privateFilePath));
             console.log("privateFileAbsolutePath", privateFileAbsolutePath);
-            _context.next = 9;
+            _context.next = 10;
             return execgitconfig("git config --global core.sshCommand \"ssh -i ".concat(privateFileAbsolutePath, "\""));
 
-          case 9:
-            _context.next = 11;
+          case 10:
+            _context.next = 12;
             return execgitconfig("git config --global  user.name ".concat(gitNameValue));
 
-          case 11:
-            _context.next = 13;
+          case 12:
+            _context.next = 14;
             return execgitconfig("git config --global  user.email ".concat(gitEmailValue));
 
-          case 13:
+          case 14:
             return _context.abrupt("return", true);
 
-          case 14:
+          case 15:
           case "end":
             return _context.stop();
         }
