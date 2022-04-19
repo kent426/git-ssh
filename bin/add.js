@@ -91,18 +91,18 @@ var updateConfig = /*#__PURE__*/function () {
       while (1) {
         switch (_context.prev = _context.next) {
           case 0:
-            console.log(JSON.stringify(answers, null, "  "));
+            // console.log(JSON.stringify(answers, null, "  "));
             profile = answers.profile, values = (0, _objectWithoutProperties2["default"])(answers, _excluded);
-            _context.next = 4;
+            _context.next = 3;
             return (0, _initconfig.createOrGetConfig)();
 
-          case 4:
+          case 3:
             configObj = _context.sent;
             newConfigObj = _objectSpread(_objectSpread({}, configObj), {}, (0, _defineProperty2["default"])({}, profile, values));
-            _context.next = 8;
+            _context.next = 7;
             return fsPromises.writeFile(_constants.CONFIG_FILE_PATH, JSON.stringify(newConfigObj, null, 4));
 
-          case 8:
+          case 7:
           case "end":
             return _context.stop();
         }
