@@ -1,5 +1,5 @@
 {
-    "name": "git-ssh",
+    "name": "@kent426/git-ssh",
     "version": "1.0.0",
     "description": "",
     "main": "bin/index.js",
@@ -13,8 +13,8 @@
         "serve": "npm run build && node bin/index.js"
     },
     "keywords": [],
-    "author": "",
-    "license": "ISC",
+    "author": "kent426",
+    "license": "MIT",
     "devDependencies": {
         "@babel/cli": "^7.17.0",
         "@babel/core": "^7.17.2",
@@ -24,10 +24,10 @@
         "eslint": "^8.9.0",
         "eslint-config-prettier": "^8.3.0",
         "nodemon": "^2.0.15",
-        "prettier": "^2.5.1"
+        "prettier": "^2.5.1",
+        "@babel/runtime": "^7.17.2"
     },
     "dependencies": {
-        "@babel/runtime": "^7.17.2",
         "inquirer": "^8.2.0",
         "inquirer-path": "^1.0.0-beta5",
         "untildify": "^4.0.0",
