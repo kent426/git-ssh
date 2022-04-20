@@ -1,6 +1,6 @@
 # git-ssh
 
-gitssh is for switching among different github accounts, such as work-related account, personal account etc.
+git-ssh is for switching among different github accounts, such as work-related account, personal account etc.
 
 didn't check existing solution; just create this simple one for myself switching between work-account and personal-account.
 
