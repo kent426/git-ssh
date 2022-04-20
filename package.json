@@ -1,6 +1,6 @@
 {
     "name": "@kent426/git-ssh",
-    "version": "1.0.4",
+    "version": "1.0.5",
     "description": "",
     "main": "bin/index.js",
     "bin": {
@@ -25,7 +25,6 @@
         "eslint-config-prettier": "^8.3.0",
         "nodemon": "^2.0.15",
         "prettier": "^2.5.1"
-        
     },
     "dependencies": {
         "@babel/runtime": "^7.17.2",
