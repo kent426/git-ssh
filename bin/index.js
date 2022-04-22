@@ -17,6 +17,8 @@ var _initconfig = require("./initconfig");
 
 var _add = require("./add");
 
+var _helpers2 = require("./helpers");
+
 (0, _yargs["default"])((0, _helpers.hideBin)(process.argv)).command({
   command: "init",
   desc: "init ~/.git-ssh/config",
@@ -50,7 +52,7 @@ var _add = require("./add");
   builder: function builder() {},
   handler: function () {
     var _handler2 = (0, _asyncToGenerator2["default"])( /*#__PURE__*/_regenerator["default"].mark(function _callee2() {
-      var configObj;
+      var configObj, lsInfo;
       return _regenerator["default"].wrap(function _callee2$(_context2) {
         while (1) {
           switch (_context2.prev = _context2.next) {
@@ -60,9 +62,14 @@ var _add = require("./add");
 
             case 2:
               configObj = _context2.sent;
-              console.log(JSON.stringify(configObj, null, 4));
+              _context2.next = 5;
+              return (0, _helpers2.stringifyWithChalk)(configObj, null, 4);
 
-            case 4:
+            case 5:
+              lsInfo = _context2.sent;
+              console.log(lsInfo);
+
+            case 7:
             case "end":
               return _context2.stop();
           }

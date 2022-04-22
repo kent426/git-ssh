@@ -4,6 +4,7 @@ import { hideBin } from "yargs/helpers";
 import { switchAccount } from "./switchAccount";
 import { createOrGetConfig } from "./initconfig";
 import { add } from "./add";
+import { stringifyWithChalk } from "./helpers";
 
 yargs(hideBin(process.argv))
     .command({
@@ -22,7 +23,8 @@ yargs(hideBin(process.argv))
         builder: () => {},
         handler: async () => {
             const configObj = await createOrGetConfig();
-            console.log(JSON.stringify(configObj, null, 4));
+            const lsInfo = await stringifyWithChalk(configObj, null, 4);
+            console.log(lsInfo);
         },
     })
     .command({

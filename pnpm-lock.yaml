@@ -7,6 +7,7 @@ specifiers:
   '@babel/preset-env': ^7.16.11
   '@babel/register': ^7.17.0
   '@babel/runtime': ^7.17.2
+  chalk: ^5.0.1
   eslint: ^8.9.0
   eslint-config-prettier: ^8.3.0
   inquirer: ^8.2.0
@@ -17,6 +18,8 @@ specifiers:
   yargs: ^17.3.1
 
 dependencies:
+  '@babel/runtime': 7.17.9
+  chalk: 5.0.1
   inquirer: 8.2.2
   inquirer-path: 1.0.0-beta5
   untildify: 4.0.0
@@ -28,7 +31,6 @@ devDependencies:
   '@babel/plugin-transform-runtime': 7.17.0_@babel+core@7.17.9
   '@babel/preset-env': 7.16.11_@babel+core@7.17.9
   '@babel/register': 7.17.7_@babel+core@7.17.9
-  '@babel/runtime': 7.17.9
   eslint: 8.13.0
   eslint-config-prettier: 8.5.0_eslint@8.13.0
   nodemon: 2.0.15
@@ -1175,7 +1177,6 @@ packages:
     engines: {node: '>=6.9.0'}
     dependencies:
       regenerator-runtime: 0.13.9
-    dev: true
 
   /@babel/template/7.16.7:
     resolution: {integrity: sha512-I8j/x8kHUrbYRTUxXrrMbfCa7jxkE7tZre39x3kjr9hvI82cK1FfqLygotcWN5kdPGWcLdWMHpSBavse5tWw3w==}
@@ -1539,6 +1540,11 @@ packages:
     dependencies:
       ansi-styles: 4.3.0
       supports-color: 7.2.0
+
+  /chalk/5.0.1:
+    resolution: {integrity: sha512-Fo07WOYGqMfCWHOzSXOt2CxDbC6skS/jO9ynEcmpANMoPrD+W1r1K6Vx7iNm+AQmETU1Xr2t+n8nzkV9t6xh3w==}
+    engines: {node: ^12.17.0 || ^14.13 || >=16.0.0}
+    dev: false
 
   /chardet/0.4.2:
     resolution: {integrity: sha1-tUc7M9yXxCTl2Y3IfVXU2KKci/I=}
@@ -2810,7 +2816,6 @@ packages:
 
   /regenerator-runtime/0.13.9:
     resolution: {integrity: sha512-p3VT+cOEgxFsRRA9X4lkI1E+k2/CtnKtU4gcxyaCUreilL/vqI6CdZ3wxVUx3UOUg+gnUOQQcRI7BmSI656MYA==}
-    dev: true
 
   /regenerator-transform/0.15.0:
     resolution: {integrity: sha512-LsrGtPmbYg19bcPHwdtmXwbW+TqNvtY4riE3P83foeHRroMbH6/2ddFBfab3t7kbzc7v7p4wbkIecHImqt0QNg==}

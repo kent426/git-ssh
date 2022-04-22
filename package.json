@@ -28,6 +28,7 @@
     },
     "dependencies": {
         "@babel/runtime": "^7.17.2",
+        "chalk": "^5.0.1",
         "inquirer": "^8.2.0",
         "inquirer-path": "^1.0.0-beta5",
         "untildify": "^4.0.0",
