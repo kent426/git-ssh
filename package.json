@@ -1,11 +1,20 @@
 {
     "name": "@kent426/git-ssh",
     "version": "1.0.5",
-    "description": "",
+    "description": "switching among different github accounts",
     "main": "bin/index.js",
     "bin": {
         "git-ssh": "bin/index.js"
     },
+    "repository": {
+        "type": "git",
+        "url": "https://github.com/kent426/git-ssh"
+    },
+    "keywords": [
+        "git",
+        "ssh",
+        "github"
+    ],
     "scripts": {
         "build": "babel src -d bin && npm run add-x",
         "add-x": "chmod +x bin/*.js",
@@ -13,7 +22,6 @@
         "serve": "npm run build && node bin/index.js",
         "prepublish": "npm run build"
     },
-    "keywords": [],
     "author": "kent426",
     "license": "MIT",
     "devDependencies": {
