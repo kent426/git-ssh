@@ -1,6 +1,6 @@
 {
     "name": "@kent426/git-ssh",
-    "version": "1.0.5",
+    "version": "1.0.6",
     "description": "switching among different github accounts",
     "main": "bin/index.js",
     "bin": {
