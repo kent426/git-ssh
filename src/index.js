@@ -1,10 +1,10 @@
-#!/usr/bin/env node
-import yargs from "yargs/yargs";
+import yargs from "yargs";
 import { hideBin } from "yargs/helpers";
 import { switchAccount } from "./switchAccount";
 import { createOrGetConfig } from "./initconfig";
 import { add } from "./add";
 import { stringifyWithChalk } from "./helpers";
+import { EOL } from "os";
 
 yargs(hideBin(process.argv))
     .command({
@@ -19,7 +19,7 @@ yargs(hideBin(process.argv))
     .command({
         command: "ls",
 
-        desc: "ls github accounts in ~/.git-ssh/config",
+        desc: "        ls github accounts in ~/.git-ssh/config",
         builder: () => {},
         handler: async () => {
             const configObj = await createOrGetConfig();
@@ -30,16 +30,16 @@ yargs(hideBin(process.argv))
     .command({
         command: "add",
 
-        desc: "add github account by answering prompts \n 1. username;\n 2. email;\n 3. ssh-private-key file path;\n",
+        desc: `        add github account by answering prompts:  ${EOL} - 0. profile-name ${EOL} - 1. username;${EOL} - 2. email;${EOL} - 3. ssh-private-key file path;${EOL}`,
         builder: () => {},
         handler: async () => {
             await add();
         },
     })
     .command({
-        command: "use [name]",
+        command: "use [profile-name]",
 
-        desc: "use specific ssh name for git",
+        desc: "        use specific ssh name for git",
         builder: () => {},
         handler: async (argv) => {
             await createOrGetConfig();

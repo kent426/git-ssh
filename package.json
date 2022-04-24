@@ -4,20 +4,21 @@
     "description": "switching among different github accounts",
     "main": "bin/index.js",
     "bin": {
-        "git-ssh": "bin/index.js"
+        "git-ssh": "git-ssh"
     },
     "repository": {
         "type": "git",
         "url": "https://github.com/kent426/git-ssh"
     },
+    "homepage": "https://github.com/kent426/git-ssh",
     "keywords": [
         "git",
         "ssh",
         "github"
     ],
     "scripts": {
-        "build": "babel src -d bin && npm run add-x",
-        "add-x": "chmod +x bin/*.js",
+        "build": "rollup -c && npm run add-x",
+        "add-x": "chmod +x git-ssh",
         "start": "npm run build && nodemon bin/index.js",
         "serve": "npm run build && node bin/index.js",
         "prepublish": "npm run build"
@@ -30,14 +31,17 @@
         "@babel/plugin-transform-runtime": "^7.17.0",
         "@babel/preset-env": "^7.16.11",
         "@babel/register": "^7.17.0",
+        "@rollup/plugin-commonjs": "^22.0.0",
+        "@rollup/plugin-node-resolve": "^13.2.1",
         "eslint": "^8.9.0",
         "eslint-config-prettier": "^8.3.0",
         "nodemon": "^2.0.15",
-        "prettier": "^2.5.1"
+        "prettier": "^2.5.1",
+        "rollup": "^2.70.2"
     },
     "dependencies": {
         "@babel/runtime": "^7.17.2",
-        "chalk": "^5.0.1",
+        "chalk": "^4.1.2",
         "inquirer": "^8.2.0",
         "inquirer-path": "^1.0.0-beta5",
         "untildify": "^4.0.0",
