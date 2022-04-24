@@ -8,15 +8,16 @@ Didn't check existing solution; just create this simple one for myself switching
 git-ssh <command>
 
 Commands:
-  git-ssh init                init ~/.git-ssh/config.json
-  git-ssh ls                  ls github accounts in ~/.git-ssh/config.json
-  git-ssh add                 add github account by answering prompts:
-                              - 0. profile-name
-                              - 1. username;
-                              - 2. email;
-                              - 3. ssh-private-key file path;
+  git-ssh init               init ~/.git-ssh/config.json
+  git-ssh ls                 ls github accounts in
+                             ~/.git-ssh/config.json
+  git-ssh add                add github account by answering prompts:
+                             - 0. profile-name
+                             - 1. username;
+                             - 2. email;
+                             - 3. ssh-private-key file path;
 
-  git-ssh use [profile-name]  use specific ssh name for git
+  git-ssh use [profileName]  use specific ssh name for git
 
 Options:
   --version  Show version number                               [boolean]
@@ -27,7 +28,7 @@ Options:
 
  Before switching github account using ssh, we need to setup [GitHub with SSH](https://docs.github.com/en/authentication/connecting-to-github-with-ssh) or follow steps in [this one](https://jdblischak.github.io/2014-09-18-chicago/novice/git/05-sshkeys.html).
 
-Basically, this cli will init `~/.git-ssh/config`, this file to store git-name, git-email, and git-ssh-private-key file path as an json object.
+Basically, this cli will init `~/.git-ssh/config.json`, this file to store git-name, git-email, and git-ssh-private-key file path as an json object.
 
 Example one is just like this: 
 ```
@@ -45,7 +46,7 @@ Example one is just like this:
 }
 ```
 
-- `git-ssh ls` just gonna print out this json object in `~/.git-ssh/config`.
+- `git-ssh ls` just gonna print out this json object in `~/.git-ssh/config.json`.
 
 - `git-ssh add` will ask you name, email and your ssh-key-path in your file system and push them into the config json object; please create your ssh key pair beforehand.
 

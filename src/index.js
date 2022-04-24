@@ -10,7 +10,7 @@ yargs(hideBin(process.argv))
     .command({
         command: "init",
 
-        desc: "init ~/.git-ssh/config",
+        desc: "init ~/.git-ssh/config.json",
         builder: () => {},
         handler: async () => {
             await createOrGetConfig();
@@ -19,7 +19,7 @@ yargs(hideBin(process.argv))
     .command({
         command: "ls",
 
-        desc: "        ls github accounts in ~/.git-ssh/config",
+        desc: "        ls github accounts in ~/.git-ssh/config.json",
         builder: () => {},
         handler: async () => {
             const configObj = await createOrGetConfig();
@@ -37,18 +37,21 @@ yargs(hideBin(process.argv))
         },
     })
     .command({
-        command: "use [profile-name]",
+        command: "use [profileName]",
 
         desc: "        use specific ssh name for git",
         builder: () => {},
         handler: async (argv) => {
             await createOrGetConfig();
-            if (!argv.name) {
-                console.log("require name");
+            if (!argv.profileName) {
+                console.log("require profileName");
             } else {
-                const hasAccount = await switchAccount(argv.name);
+                const hasAccount = await switchAccount(argv.profileName);
                 if (!hasAccount) {
-                    console.log(argv.name, "not in config.json in .git-ssh");
+                    console.log(
+                        argv.profileName,
+                        "not in config.json in .git-ssh"
+                    );
                 }
             }
         },
