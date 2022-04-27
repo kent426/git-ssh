@@ -23,7 +23,7 @@ export const execgitconfig = async (command, toPrint = true) => {
         }
         return stdout;
     } catch (e) {
-        console.log(e);
+        if (toPrint) console.log(e);
     }
 };
 
